@@ -1,0 +1,8 @@
+{>layout/}
+{<content}
+	<div class="stocks">
+		<div class="stocks-item stocks-item-left"></div>
+		<div class="stocks-item stocks-item-center"></div>
+		<div class="stocks-item stocks-item-right"></div>
+	</div>
+{/content}
