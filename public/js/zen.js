@@ -2,7 +2,11 @@ $(function(){
 	var $count = $('#count'),
 		lastValue = +$count.text()||0,
 		$video = $('#video'),
-		audio = $('#audio')[0],
+		audioZen = $('#audio_zen')[0],
+		audioDrive = $('#audio_drive')[0],
+		$zenSwitch = $('#zen_switch'),
+		$zenLabel = $('#zenLabel'),
+		$driveLabel = $('#driveLabel'),
 		$volume = $('#volume'),
 		$mantra = $('#mantra');
 
@@ -110,20 +114,52 @@ $(function(){
 		}, 0);
 	}
 
-	$volume.on('click', function(){
-		if (audio.paused) {
-			audio.play();
-			$volume.removeClass('volume-off');
-		} else {
-			audio.pause();
+	var paused = false;
+	function updateAudio() {
+		var drive = $zenSwitch.is(':checked');
+		var selected = 'switch-label-selected';
+
+		if (paused) {
+			audioZen.pause();
+			audioDrive.pause();
 			$volume.addClass('volume-off');
+			$zenLabel.removeClass(selected);
+			$driveLabel.removeClass(selected);
+		} else {
+			if (drive) {
+				audioZen.pause();
+				audioDrive.play();
+				$zenLabel.removeClass(selected);
+				$driveLabel.addClass(selected);
+			} else {
+				audioDrive.pause();
+				audioZen.play();
+				$driveLabel.removeClass(selected);
+				$zenLabel.addClass(selected);
+			}
+			$volume.removeClass('volume-off');
 		}
+	}
+
+	$volume.on('click', function(){
+		paused = !paused;
+		updateAudio();
 	});
-	audio.play();
+
+	$zenSwitch.on('change', updateAudio);
+	$zenLabel.on('click', function(){
+		$zenSwitch[0].checked = false;
+		updateAudio();
+	});
+	$driveLabel.on('click', function(){
+		$zenSwitch[0].checked = true;
+		updateAudio();
+	});
 
 	adjustFontSize();
 	$(window).on('resize', adjustFontSize);
 	update();
 	updateBackground();
 	updateMantra();
+	updateAudio();
 });

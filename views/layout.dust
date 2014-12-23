@@ -19,11 +19,7 @@
 			</a>
 		</div>
 		{+content/}
-		<div class="footer">
-			<a class="footer-link" href="https://www.facebook.com/events/406603402849183/407852609390929">
-				Я тоже пойду
-			</a>
-		</div>
+		{>footer/}
 	</div>
 	{>ga/}
 </body>
