@@ -5,6 +5,10 @@
 @fontNormal: 16px;
 @fontLarge: 130px;
 
+* {
+	user-select: none;
+}
+
 html, body {
 	height: 100%;
 	widows: 100%;
@@ -21,6 +25,8 @@ body {
 
 a {
 	color: @textColor;
+	text-decoration: none;
+	outline: none !important;
 }
 
 .audio {

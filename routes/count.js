@@ -3,6 +3,8 @@ var router = express.Router();
 var fb = require('fb');
 var config = require('./config');
 
+var count = 0;
+
 fb.api('oauth/access_token', {
 	client_id: config.client_id,
 	client_secret: config.client_secret,
@@ -14,17 +16,23 @@ fb.api('oauth/access_token', {
 	}
 	var accessToken = res.access_token;
 	fb.setAccessToken(accessToken);
+	update();
 });
 
-router.post('/', function(req, res, next) {
+function update(){
 	fb.api('406603402849183', {fields: ['attending_count']}, function (fb_res) {
 		if(!fb_res || fb_res.error) {
 			console.log(!fb_res ? 'error occurred' : fb_res.error);
-			next(fb_res.error);
-			return;
+		} else {
+			count = fb_res.attending_count;
 		}
-		res.status(200).send(''+fb_res.attending_count);
+
+		setTimeout(update, 30000);
 	});
+}
+
+router.post('/', function(req, res, next) {
+	res.status(200).send(''+count);
 });
 
 module.exports = router;
