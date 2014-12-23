@@ -13,7 +13,7 @@
 	</div>
 	<div class="stocks">
 		{>stocks-item value="8 лет" note="За сознательность" position="left" link="https://soundcloud.com/user62248718/w1d6v63w4asg" /}
-		{>stocks-item value="10 лет" note="За регистрацию фирмы" position="center" link="http://www.youtube.com/watch?v=RvnkmPPiPWo" /}
-		{>stocks-item id="count" value=count note="Желающих пойти на Манежку" position="right" link="https://www.facebook.com/events/406603402849183/407852609390929/" /}
+		{>stocks-item id="count" value=count note="Желающих пойти на Манежку" position="center" link="https://www.facebook.com/events/406603402849183/407852609390929/" /}
+		{>stocks-item value="10 лет" note="За регистрацию фирмы" position="right" link="http://www.youtube.com/watch?v=RvnkmPPiPWo" /}
 	</div>
 {/content}
