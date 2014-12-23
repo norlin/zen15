@@ -12,7 +12,8 @@ $(function(){
 		$driveLabel = $('#driveLabel'),
 		$volume = $('#volume'),
 		$mantra = $('#mantra'),
-		$date = $('#date');
+		$date = $('#date'),
+		$dateNote = $('#dateNote');
 
 	function parseNum(val) {
 		val = ''+Math.round(val);
@@ -160,14 +161,44 @@ $(function(){
 		updateAudio();
 	});
 
-	var date = new Date('Thu Jan 15 2015 19:00:00 GMT+0300');
+	function wordEnd(word, num){
+		//word = ['сайтов','сайта','сайт']
+		var num100 = num % 100;
+
+		if (num === 0){
+			return typeof(word[3]) != 'undefined' ? word[3] : word[0];
+		}
+		if (num100 > 10 && num100 < 20){
+			return word[0];
+		}
+		if ( (num % 5 >= 5) && (num100 <= 20) ){
+			return word[0];
+		}else{
+			num = num % 10;
+			if (((num >= 5) && num <= 9) || (num === 0)){
+				return word[0];
+			}
+			if ((num >= 2) && (num <= 4)){
+				return word[1];
+			}
+			if (num == 1){
+				return word[2];
+			}
+		}
+		return word[0];
+	}
+
+	var date = new Date('Thu Jan 15 2015 19:00:00 GMT+0300'),
+		text = ', чтобы рассказать всем';
 	function updateDate() {
 		var ms = date.getTime(),
 			msNow = Date.now(),
 			diff = ms - msNow,
 			msMin = 1000 * 60,
-			sec = Math.round(diff / msMin);
-		animate($date, sec, 'date');
+			min = Math.round(diff / msMin);
+		animate($date, min, 'date');
+		var minText = wordEnd(['Минут', 'Минуты', 'Минута'], min);
+		$dateNote.html(minText + text);
 		window.setTimeout(updateDate, 1000);
 	}
 

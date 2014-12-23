@@ -1,6 +1,6 @@
 <div class="stocks-item stocks-item-{position}">
 	<div{?id} id="{id}"{/id} class="stocks-item-value">{value}</div>
-	<{?link}a href="{link}" target="_blank"{:else}span{/link} class="stocks-item-note">
+	<{?link}a href="{link}" target="_blank"{:else}span{/link} id="{id}Note" class="stocks-item-note">
 		{note}
 	</{?link}a{:else}span{/link}>
 </div>
