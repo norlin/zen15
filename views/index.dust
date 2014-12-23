@@ -5,6 +5,9 @@
 		<audio id="audio" class="audio" src="/media/zen15.mp3" loop></audio>
 	</div>
 	<div id="video" class="holder-video holder-video-1"></div>
+	{?message}
+		<div class="error">{message}</div>
+	{/message}
 	<div class="stocks">
 		{>stocks-item value="8 лет" note="За сознательность" position="left" link="https://soundcloud.com/user62248718/w1d6v63w4asg" /}
 		{>stocks-item value="10 лет" note="За регистрацию фирмы" position="center" link="http://www.youtube.com/watch?v=RvnkmPPiPWo" /}
