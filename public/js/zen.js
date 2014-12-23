@@ -52,8 +52,10 @@ $(function(){
 		setTimeout(update, 5000);
 	}
 
+	var bgs = ['1', '2', '3', '4', '5', '6', '7', '8', '9', '10'];
 	function updateBackground(){
-		var bg = Math.round(Math.random()*4)+1;
+		var count = bgs.length-1;
+		var bg = Math.round(Math.random()*count)+1;
 		var $video2 = $video.clone();
 		$video2.attr('class', 'holder-video holder-video-hidden holder-video-'+bg);
 		$video2.insertAfter($video);
