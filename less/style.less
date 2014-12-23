@@ -7,6 +7,8 @@
 
 * {
 	user-select: none;
+	-webkit-user-select: none;
+	-moz-user-select: none;
 }
 
 html, body {
@@ -21,6 +23,7 @@ body {
 	background: @backgroundColor;
 	color: @textColor;
 	opacity: 0.9;
+	cursor: default;
 }
 
 a {
@@ -242,6 +245,8 @@ a {
 	&-link {
 		display: inline-block;
 		padding: 5px 15px;
+
+		border-radius: 10px;
 
 		background: rgba(0, 0, 0, 0.5);
 
