@@ -3,7 +3,8 @@ $(function(){
 		lastValue = +$count.text()||0,
 		$video = $('#video'),
 		audio = $('#audio')[0],
-		$volume = $('#volume');
+		$volume = $('#volume'),
+		$mantra = $('#mantra');
 
 	function parseNum(val) {
 		val = ''+Math.round(val);
@@ -70,6 +71,30 @@ $(function(){
 		window.setTimeout(updateBackground, 15000);
 	}
 
+	var mantras = [
+		'Жизнь слишком коротка, чтобы всё время смотреть в стол.',
+		'Мы придумали какую-то ерунду: нас всех побьют и посадят. Убить и посадить всех невозможно.',
+		'Мне кажется, что ответственность — это как раз сделать так, чтобы мои дети захотели остаться здесь.',
+		'Свободных СМИ в стране практически нет. Значит, нужно пытаться создавать политическую конкуренцию.',
+		'Жизнь страны можно полностью изменить за пять лет.',
+		'Когда человек мне говорит, что не интересуется политикой, я считаю его просто глупым.',
+		'Каждый понимает, что коррупция — это плохо, а некоррупция — хорошо.',
+		'Меня по телевизору не показывают, и я действую так, словно никакого телевизора не существует.',
+		'Есть опыт других стран, он доступен, результаты понятны.',
+		'Власть должна быть для людей, а там, где это возможно, то есть практически везде, сами люди и должны быть властью.'
+	];
+	var author = '';//'<br/>&copy; Навальный';
+	function updateMantra(){
+		var count = mantras.length-1;
+		var i = Math.round(Math.random()*count);
+		$mantra.fadeOut(1000, function(){
+			$mantra.html(mantras[i]+author);
+			$mantra.fadeIn(1000, function(){
+				window.setTimeout(updateMantra, 10000);
+			});
+		});
+	}
+
 	var $item = $('.stocks-item'),
 		$itemRight = $('.stocks-item-right'),
 		$stocks = $('.stocks'),
@@ -96,4 +121,5 @@ $(function(){
 	$(window).on('resize', adjustFontSize);
 	update();
 	updateBackground();
+	updateMantra();
 });

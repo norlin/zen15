@@ -8,6 +8,9 @@
 	{?message}
 		<div class="error">{message}</div>
 	{/message}
+	<div id="mantra" class="stocks-mantra">
+		Власть должна быть для людей, а там, где это возможно, то есть практически везде, сами люди и должны быть властью.
+	</div>
 	<div class="stocks">
 		{>stocks-item value="8 лет" note="За сознательность" position="left" link="https://soundcloud.com/user62248718/w1d6v63w4asg" /}
 		{>stocks-item value="10 лет" note="За регистрацию фирмы" position="center" link="http://www.youtube.com/watch?v=RvnkmPPiPWo" /}
