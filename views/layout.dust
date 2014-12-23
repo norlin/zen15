@@ -3,9 +3,25 @@
 <head>
 	<meta charset="UTF-8">
 	<title>Zen15 / Zen Navalny</title>
+	<link rel="stylesheet" href="//maxcdn.bootstrapcdn.com/font-awesome/4.2.0/css/font-awesome.min.css" />
+	<link rel="stylesheet" href="http://fonts.googleapis.com/css?family=Play:400,700|Open+Sans+Condensed:300&subset=latin,cyrillic" />
 	<link rel="stylesheet" href="/css/style.css" />
+	<script type="text/javascript" src="http://yastatic.net/jquery/2.1.3/jquery.min.js"></script>
+	<script type="text/javascript" src="/js/zen.js"></script>
 </head>
 <body>
-	{+content/}
+	<div class="holder">
+		<div class="header">
+			<a class="header-link" href="https://www.facebook.com/events/406603402849183/407852609390929">
+				15.1.15
+			</a>
+		</div>
+		{+content/}
+		<div class="footer">
+			<a class="footer-link" href="https://www.facebook.com/events/406603402849183/407852609390929">
+				Я тоже пойду
+			</a>
+		</div>
+	</div>
 </body>
 </html>

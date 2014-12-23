@@ -12,6 +12,7 @@
     "dustjs-linkedin": "^2.5.1",
     "express": "~4.9.0",
     "express-less": "0.0.6",
+    "fb": "^0.7.0",
     "morgan": "~1.3.0",
     "serve-favicon": "~2.1.3"
   },

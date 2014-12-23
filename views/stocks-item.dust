@@ -1,0 +1,4 @@
+<div class="stocks-item stocks-item-{position}">
+	<div{?id} id="{id}"{/id} class="stocks-item-value">{value}</div>
+	<a class="stocks-item-note" href="{link}" target="_blank">{note}</a>
+</div>
