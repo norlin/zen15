@@ -16,7 +16,7 @@ fb.api('oauth/access_token', {
 	fb.setAccessToken(accessToken);
 });
 
-router.get('/', function(req, res, next) {
+router.post('/', function(req, res, next) {
 	fb.api('406603402849183', {fields: ['attending_count']}, function (fb_res) {
 		if(!fb_res || fb_res.error) {
 			console.log(!fb_res ? 'error occurred' : fb_res.error);

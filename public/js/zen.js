@@ -44,7 +44,7 @@ $(function(){
 	}
 
 	function update(){
-		$.get('/count').done(function(count){
+		$.post('/count').done(function(count){
 			animate(count);
 		});
 
