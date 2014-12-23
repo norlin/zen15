@@ -1,6 +1,9 @@
 $(function(){
 	var $count = $('#count'),
-		lastValue = +$count.text()||0,
+		lastValue = {
+			count: +$count.text()||0,
+			date: 0
+		},
 		$video = $('#video'),
 		audioZen = $('#audio_zen')[0],
 		audioDrive = $('#audio_drive')[0],
@@ -8,7 +11,8 @@ $(function(){
 		$zenLabel = $('#zenLabel'),
 		$driveLabel = $('#driveLabel'),
 		$volume = $('#volume'),
-		$mantra = $('#mantra');
+		$mantra = $('#mantra'),
+		$date = $('#date');
 
 	function parseNum(val) {
 		val = ''+Math.round(val);
@@ -26,31 +30,31 @@ $(function(){
 		return num.reverse().join('');
 	}
 
-	function animate(value){
-		if (value > lastValue) {
-			$count.addClass('stocks-item-value-up');
-		} else if (value < lastValue) {
-			$count.addClass('stocks-item-value-down');
+	function animate($item, value, lastName){
+		if (value > lastValue[lastName]) {
+			$item.addClass('stocks-item-value-up');
+		} else if (value < lastValue[lastName]) {
+			$item.addClass('stocks-item-value-down');
 		}
 
-		$({value: lastValue}).animate({value: value}, {
+		$({value: lastValue[lastName]}).animate({value: value}, {
 			duration: 2000,
 			easing:'linear',
 			step: function() {
-				$count.text(parseNum(this.value));
+				$item.text(parseNum(this.value));
 			}
 		});
 
 		window.setTimeout(function(){
-			$count.removeClass('stocks-item-value-up stocks-item-value-down');
+			$item.removeClass('stocks-item-value-up stocks-item-value-down');
 		}, 3000);
 
-		lastValue = value;
+		lastValue[lastName] = value;
 	}
 
 	function update(){
 		$.post('/count').done(function(count){
-			animate(count);
+			animate($count, count, 'count');
 		});
 
 		setTimeout(update, 5000);
@@ -156,10 +160,22 @@ $(function(){
 		updateAudio();
 	});
 
+	var date = new Date('Thu Jan 15 2015 19:00:00 GMT+0300');
+	function updateDate() {
+		var ms = date.getTime(),
+			msNow = Date.now(),
+			diff = ms - msNow,
+			msMin = 1000 * 60,
+			sec = Math.round(diff / msMin);
+		animate($date, sec, 'date');
+		window.setTimeout(updateDate, 1000);
+	}
+
 	adjustFontSize();
 	$(window).on('resize', adjustFontSize);
 	update();
 	updateBackground();
 	updateMantra();
 	updateAudio();
+	updateDate();
 });
