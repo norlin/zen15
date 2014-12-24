@@ -64,9 +64,15 @@ $(function(){
 	var bgs = ['1', '2', '3', '4', '5', '6', '7', '8', '9', '10'];
 	function updateBackground(){
 		var count = bgs.length-1;
-		var bg = Math.round(Math.random()*count)+1;
+		var num = Math.round(Math.random()*count);
+		var bg = num+1;
 		var $video2 = $video.clone();
 		$video2.attr('class', 'holder-video holder-video-hidden holder-video-'+bg);
+
+		if (num % 2) {
+			$video2.addClass('holder-video-invert');
+		}
+
 		$video2.insertAfter($video);
 
 		window.setTimeout(function(){
