@@ -30,6 +30,20 @@ a {
 	color: @textColor;
 	text-decoration: none;
 	outline: none !important;
+	cursor: pointer;
+}
+
+a:not(.stocks-item) {
+	opacity: 0.8;
+	transition: opacity 0.5s;
+
+	&:hover {
+		opacity: 1;
+	}
+}
+
+.g-hidden {
+	display: none !important;
 }
 
 .error {
@@ -75,6 +89,7 @@ a {
 	white-space: nowrap;
 
 	&-item {
+		position: relative;
 		display: inline-block;
 		vertical-align: middle;
 		padding: 0 10px;
@@ -217,12 +232,10 @@ a {
 	}
 	&-video {
 		-webkit-animation: bg_move 30s linear;
-		-moz-animation: bg_move 30s linear;
 		animation: bg_move 30s linear;
 	}
 	&-video-invert {
 		-webkit-animation: bg_move_back 30s linear;
-		-moz-animation: bg_move_back 30s linear;
 		animation: bg_move_back 30s linear;
 	}
 }
@@ -263,6 +276,24 @@ a {
 		vertical-align: top;
 		text-align: center;
 
+		a& {
+			opacity: inherit;
+
+			cursor: pointer;
+			text-decoration: none;
+
+			&>span,
+			&>div {
+				transition: all 0.5s;
+
+				opacity: 0.8;
+			}
+			&:hover>span,
+			&:hover>div {
+				opacity: 1;
+			}
+		}
+
 		&-value {
 			display: block;
 
@@ -283,20 +314,12 @@ a {
 		}
 		&-note {
 			display: block;
+			width: 80%;
+			margin: 0 auto;
+
+			text-align: center;
 			text-shadow: 0 0 3px #666;
 			text-decoration: none;
-
-			a& {
-				cursor: pointer;
-
-				transition: all 0.5s;
-
-				opacity: 0.8;
-				&:hover {
-					text-decoration: none;
-					opacity: 1;
-				}
-			}
 		}
 	}
 }
@@ -323,13 +346,6 @@ a {
 		font-size: 20px;
 		text-decoration: none;
 		cursor: pointer;
-
-		opacity: 0.8;
-		transition: opacity 0.5s;
-		&:hover {
-			text-decoration: none;
-			opacity: 1;
-		}
 	}
 }
 
@@ -378,6 +394,12 @@ a {
 		&-selected {
 			opacity: 1;
 		}
+
+		&-video {
+			position: absolute;
+			top: 30px;
+			right: 10px;
+		}
 	}
 }
 
@@ -398,7 +420,7 @@ input.cmn-toggle-round-flat {
 	@size: 30px;
 	&+label {
 		padding: 2px;
-		width: @size * 2;
+		width: (@size * 2) - 4px;
 		height: @size;
 		background-color: rgba(0, 0, 0, 0.3);
 		border-radius: @size;

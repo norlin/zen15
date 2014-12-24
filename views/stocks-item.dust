@@ -1,6 +1,4 @@
-<div class="stocks-item stocks-item-{position}">
-	<div{?id} id="{id}"{/id} class="stocks-item-value">{value}</div>
-	<{?link}a href="{link}" target="_blank"{:else}span{/link} id="{id}Note" class="stocks-item-note">
-		{note}
-	</{?link}a{:else}span{/link}>
-</div>
+<{?link}a href="{link}" target="_blank"{:else}span{/link} id="{id}Block" class="stocks-item stocks-item-{position}"{?hidden} style="display:none;"{/hidden}>
+	<span id="{id}" class="stocks-item-value">{value}</span>
+	<span id="{id}Note" class="stocks-item-note">{note}</span>
+</{?link}a{:else}span{/link}>

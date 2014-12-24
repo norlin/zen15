@@ -4,10 +4,13 @@
 		<div class="setup-item">
 			<div id="zenLabel" class="switch-label">Zen</div>
 			<div class="switch">
-				<input id="zen_switch" class="cmn-toggle cmn-toggle-round-flat" type="checkbox" />
+				<input id="zen_switch" class="cmn-toggle cmn-toggle-round-flat" type="checkbox" checked="checked" />
 				<label for="zen_switch"></label>
 			</div>
-			<div id="driveLabel" class="switch-label">Drive</div>
+			<div id="driveLabel" class="switch-label">Navalny</div>
+			<a href="https://www.youtube.com/watch?v=WZAdQS8ciVo" target="_blank" class="switch-label switch-label-video">
+				Видео
+			</a>
 		</div>
 		<div class="setup-item">
 			<i id="volume" class="fa volume"></i>
@@ -15,7 +18,7 @@
 	</div>
 	<div class="holder-audio">
 		<audio id="audio_zen" class="audio" src="/media/zen15.mp3" loop></audio>
-		<audio id="audio_drive" class="audio" src="/media/drive.mp3" loop></audio>
+		<audio id="audio_drive" class="audio" src="/media/navalny.mp3" loop></audio>
 	</div>
 	<div id="video" class="holder-video holder-video-1"></div>
 	{?message}
@@ -25,7 +28,8 @@
 		Власть должна быть для людей, а там, где это возможно, то есть практически везде, сами люди и должны быть властью.
 	</div>
 	<div class="stocks">
-		{>stocks-item value="10" note="Лет за борьбу с коррупцией" position="left" link="http://www.youtube.com/watch?v=RvnkmPPiPWo" /}
+		{>stocks-item id="navalny" value="10" note="Лет за борьбу с коррупцией" position="left" link="http://www.youtube.com/watch?v=RvnkmPPiPWo" /}
+		{>stocks-item id="sechin" hidden="1" value="0" note="Столько рублей получил Сечин с момента вашего захода на сайт" position="left" link="http://www.forbes.ru/reitingi-photogallery/247478-25-samykh-dorogikh-top-menedzherov-rossii-2013-reiting-forbes/photo/1" /}
 		{>stocks-item id="count" value=count note="Желающих пойти на Манежку" position="center" link="https://www.facebook.com/events/406603402849183/407852609390929/" /}
 		{>stocks-item id="date" value="0" note="Минут, чтобы рассказать всем" position="right" /}
 	</div>

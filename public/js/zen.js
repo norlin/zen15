@@ -2,7 +2,8 @@ $(function(){
 	var $count = $('#count'),
 		lastValue = {
 			count: +$count.text()||0,
-			date: 0
+			date: 0,
+			sechin: 0
 		},
 		$video = $('#video'),
 		audioZen = $('#audio_zen')[0],
@@ -13,25 +14,31 @@ $(function(){
 		$volume = $('#volume'),
 		$mantra = $('#mantra'),
 		$date = $('#date'),
-		$dateNote = $('#dateNote');
+		$dateNote = $('#dateNote'),
+		$navalny = $('#navalnyBlock'),
+		$sechin = $('#sechin'),
+		$sechinBlock = $('#sechinBlock'),
+		$sechinNote = $('#sechinNote');
 
 	function parseNum(val) {
 		val = ''+Math.round(val);
 		val = val.split('').reverse();
 		var num = [],
-			i = 0;
-		$.each(val, function(index, x){
+			i = 0,
+			x;
+		for (var j = 0; j < val.length; j+=1) {
+			x = val[j];
 			i+=1;
 			num.push(x);
 			if (i==3) {
 				i = 0;
 				num.push(' ');
 			}
-		});
+		}
 		return num.reverse().join('');
 	}
 
-	function animate($item, value, lastName){
+	function animate($item, value, lastName, duration){
 		if (value > lastValue[lastName]) {
 			$item.addClass('stocks-item-value-up');
 		} else if (value < lastValue[lastName]) {
@@ -39,7 +46,7 @@ $(function(){
 		}
 
 		$({value: lastValue[lastName]}).animate({value: value}, {
-			duration: 2000,
+			duration: duration || 2000,
 			easing:'linear',
 			step: function() {
 				$item.text(parseNum(this.value));
@@ -120,6 +127,7 @@ $(function(){
 		$itemRight = $('.stocks-item-right'),
 		$stocks = $('.stocks'),
 		$value = $('.stocks-item-value');
+
 	function adjustFontSize() {
 		$value.css('font-size', $itemRight.width() / 4);
 		setTimeout(function() {
@@ -210,11 +218,49 @@ $(function(){
 		window.setTimeout(updateDate, 1000);
 	}
 
+	var salary = 5000000 / 86400,
+		forUser = 0;
+
+	function updateSechin(){
+		forUser += salary;
+
+		if (!showSechin) {
+			animate($sechin, forUser, 'sechin', 600);
+		}
+	}
+
+	var showSechin = false;
+	function switchSechin() {
+		function setUpdate($item1, $item2){
+			if ($item2.is('visible')) {
+				window.setTimeout(switchSechin, 10000);
+				return;
+			}
+			$item1.fadeOut(1000, function(){
+				showSechin = !showSechin;
+				$sechin.text(parseNum(forUser));
+				lastValue.sechin = forUser;
+				$item2.removeClass('g-hidden');
+				$item2.fadeIn(1000, function(){
+					window.setTimeout(switchSechin, 10000);
+				});
+			});
+		}
+
+		if (showSechin) {
+			setUpdate($navalny, $sechinBlock);
+		} else {
+			setUpdate($sechinBlock, $navalny);
+		}
+	}
+
 	adjustFontSize();
 	$(window).on('resize', adjustFontSize);
 	update();
-	updateBackground();
+	window.setTimeout(updateBackground, 15000);
 	updateMantra();
 	updateAudio();
 	updateDate();
+	window.setInterval(updateSechin, 1000);
+	switchSechin();
 });
