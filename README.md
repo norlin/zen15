@@ -2,7 +2,8 @@ zen15
 =====
 
 ## Install
-Need to create `config.js` file in `routes/` dir:
+1. Update [Google Analytics](http://www.google.com/analytics/) ID (or just remove `views/ga.dust`)
+2. Create `config.js` file in `routes/` dir:
 ```
   module.exports = {
     client_id: 'your_facebook_app_id',
