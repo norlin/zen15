@@ -22,4 +22,7 @@
 			data-image="https%3A%2F%2Fwww.zen15.me%2Fi%2Fshare.jpg">
 		</div>
 	</div>
+	<div class="copyleft">
+		<a href="https://github.com/norlin/zen15" target="_blank">fork me</a>
+	</div>
 </div>
