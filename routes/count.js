@@ -32,6 +32,7 @@ function update(){
 }
 
 router.post('/', function(req, res, next) {
+	req.app.set('count', count);
 	res.status(200).send(''+count);
 });
 
