@@ -68,7 +68,7 @@ $(function(){
 		setTimeout(update, 5000);
 	}
 
-	var bgs = ['1', '2', '3', '4', '5', '6', '7', '8', '9', '10'];
+	var bgs = ['1', '3', '4', '5', '6', '7', '8', '9', '10', '11', '12', '13', '14'];
 	function updateBackground(){
 		var count = bgs.length-1;
 		var num = Math.round(Math.random()*count);
