@@ -20,7 +20,7 @@
 		<audio id="audio_zen" class="audio" src="/media/zen15.mp3" loop></audio>
 		<audio id="audio_drive" class="audio" src="/media/navalny.mp3" loop></audio>
 	</div>
-	<div id="video" class="holder-video holder-video-1"></div>
+	<div id="video" class="holder-video holder-video-{bg}"></div>
 	{?message}
 		<div class="error">{message}</div>
 	{/message}

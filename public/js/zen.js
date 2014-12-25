@@ -5,6 +5,7 @@ $(function(){
 			date: 0,
 			sechin: 0
 		},
+		bgTimeout = 15000,
 		$video = $('#video'),
 		audioZen = $('#audio_zen')[0],
 		audioDrive = $('#audio_drive')[0],
@@ -69,14 +70,17 @@ $(function(){
 	}
 
 	var bgs = ['1', '3', '4', '5', '6', '7', '8', '9', '10', '11', '12', '13', '14'];
+	var bgTurn = 0;
 	function updateBackground(){
 		var count = bgs.length-1;
 		var num = Math.round(Math.random()*count);
-		var bg = num+1;
+		var bg = bgs[num];
 		var $video2 = $video.clone();
 		$video2.attr('class', 'holder-video holder-video-hidden holder-video-'+bg);
 
-		if (num % 2) {
+		bgTurn += 1;
+
+		if (bgTurn % 2) {
 			$video2.addClass('holder-video-invert');
 		}
 
@@ -92,7 +96,7 @@ $(function(){
 			$video = $video2;
 		}, 7000);
 
-		window.setTimeout(updateBackground, 15000);
+		window.setTimeout(updateBackground, bgTimeout);
 	}
 
 	var mantras = [
@@ -258,7 +262,7 @@ $(function(){
 	adjustFontSize();
 	$(window).on('resize', adjustFontSize);
 	update();
-	window.setTimeout(updateBackground, 15000);
+	window.setTimeout(updateBackground, bgTimeout);
 	updateMantra();
 	updateAudio();
 	updateDate();
