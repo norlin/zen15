@@ -19,6 +19,11 @@
 	</style>
 </head>
 <body>
+	<p>
+		Вы можете самостоятельно подобрать размеры, меняя значения width и height;
+		<br />
+		Также, можно задавать любой фон баннеру, добавит параметр <i>background: #123456;</i> в аттрибут "style";
+	</p>
 	<h2>Большой баннер</h2>
 	<iframe style="display:block;margin:0 auto;width:800px;height:176px;" src="https://banner.zen15.tk/banner" allowTransparency="true" frameborder="0" scrolling="no"></iframe>
 	<p>
