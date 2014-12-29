@@ -28,4 +28,8 @@ router.get('/mantra', function(req, res) {
 	home('mantra', req, res);
 });
 
+router.get('/banners', function(req, res) {
+	home('banners', req, res);
+});
+
 module.exports = router;

@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	{>meta/}
+	<link rel="icon" type="image/png" href="/favicon.png" />
+	<link rel="apple-touch-icon" href="/favicon-touch.png"/>
+	<title>Жизнь слишком коротка, чтобы всё время смотреть в стол</title>
+	<style type="text/css">
+		body {
+			padding: 50px;
+			background: #333;
+			color: #cecece;
+		}
+		p {
+			padding: 10px 0 10px 100px;
+			background: #666;
+		}
+	</style>
+</head>
+<body>
+	<h2>Большой баннер</h2>
+	<iframe style="display:block;margin:0 auto;width:800px;height:176px;" src="https://banner.zen15.tk/banner" allowTransparency="true" frameborder="0" scrolling="no"></iframe>
+	<p>
+		&lt;iframe style=&quot;display:block;margin:0 auto;width:800px;height:176px;&quot; src=&quot;https://banner.zen15.tk/banner&quot; allowTransparency=&quot;true&quot; frameborder=&quot;0&quot; scrolling=&quot;no&quot;&gt;&lt;/iframe&gt;
+	</p>
+
+	<h2>Маленький баннер</h2>
+	<iframe style="display:block;margin:0 auto;width:600px;height:100px;" src="https://banner.zen15.tk/banner-small" allowTransparency="true" frameborder="0" scrolling="no"></iframe>
+	<p>
+		&lt;iframe style=&quot;display:block;margin:0 auto;width:600px;height:100px;&quot; src=&quot;https://banner.zen15.tk/banner-small&quot; allowTransparency=&quot;true&quot; frameborder=&quot;0&quot; scrolling=&quot;no&quot;&gt;&lt;/iframe&gt;
+	</p>
+
+	<h2>Мантра</h2>
+	<iframe style="display:block;margin:0 auto;width:600px;height:100px;" src="https://banner.zen15.tk/mantra" allowTransparency="true" frameborder="0" scrolling="no"></iframe>
+	<p>
+		&lt;iframe style=&quot;display:block;margin:0 auto;width:600px;height:100px;&quot; src=&quot;https://banner.zen15.tk/mantra&quot; allowTransparency=&quot;true&quot; frameborder=&quot;0&quot; scrolling=&quot;no&quot;&gt;&lt;/iframe&gt;
+	</p>
+	{>ga/}
+</body>
+</html>
