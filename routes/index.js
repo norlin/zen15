@@ -20,4 +20,12 @@ router.get('/banner', function(req, res) {
 	home('banner', req, res);
 });
 
+router.get('/banner-small', function(req, res) {
+	home('banner-small', req, res);
+});
+
+router.get('/mantra', function(req, res) {
+	home('mantra', req, res);
+});
+
 module.exports = router;

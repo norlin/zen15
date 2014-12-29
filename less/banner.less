@@ -29,6 +29,7 @@ body {
 body.banner {
 	width: 100%;
 	height: auto;
+	background: transparent;
 }
 
 a {
@@ -66,22 +67,6 @@ a {
 	width: 100%;
 
 	transition: margin 0.5s;
-
-	&-mantra {
-		position: absolute;
-		top: 100px;
-
-		box-sizing: border-box;
-		display: block;
-		width: 100%;
-		height: 50px;
-
-		padding: 0 50px;
-
-		font-size: 18px;
-		text-align: center;
-		text-shadow: 0 0 3px #666;
-	}
 
 	&-item {
 		box-sizing: border-box;
@@ -143,8 +128,28 @@ a {
 		top: auto;
 		margin: 0 auto;
 		padding: 0;
-		.stocks-item-value {
-			font-size: 70px;
+		.stocks {
+			&-note {
+				text-shadow: 0 0 3px #666;
+			}
+
+			&-item-value {
+				font-size: 70px;
+			}
+
+			&-mantra {
+				position: relative;
+
+				display: block;
+				width: 100%;
+				height: 50px;
+
+				padding: 10px 0 0 0;
+
+				font-size: 18px;
+				text-align: center;
+				text-shadow: 0 0 3px #333;
+			}
 		}
 	}
 }

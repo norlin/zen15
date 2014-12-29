@@ -96,7 +96,7 @@ $(function(){
 		$value = $('.stocks-item-value');
 
 	function adjustFontSize() {
-		$value.css('font-size', $itemRight.width() / 4);
+		$value.css('font-size', $itemRight.width() / 5);
 	}
 
 	function wordEnd(word, num){
@@ -176,11 +176,19 @@ $(function(){
 		}
 	}
 
-	adjustFontSize();
-	$(window).on('resize', adjustFontSize);
-	update();
-	updateMantra();
-	updateDate();
-	window.setInterval(updateSechin, 1000);
-	switchSechin();
+	if ($count.length) {
+		adjustFontSize();
+		$(window).on('resize', adjustFontSize);
+		update();
+		updateDate();
+	}
+
+	if ($mantra.length) {
+		updateMantra();
+	}
+
+	if ($sechin.length) {
+		window.setInterval(updateSechin, 1000);
+		switchSechin();
+	}
 });

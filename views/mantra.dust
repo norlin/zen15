@@ -1,0 +1,6 @@
+{>layout-min/}
+{<content}
+	<span class="stocks stocks-banner stocks-banner-mantra">
+		<span id="mantra" class="stocks-mantra"></span>
+	</span>
+{/content}
