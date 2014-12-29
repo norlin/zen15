@@ -5,14 +5,6 @@ $(function(){
 			date: 0,
 			sechin: 0
 		},
-		bgTimeout = 15000,
-		$video = $('#video'),
-		audioZen = $('#audio_zen')[0],
-		audioDrive = $('#audio_drive')[0],
-		$zenSwitch = $('#zen_switch'),
-		$zenLabel = $('#zenLabel'),
-		$driveLabel = $('#driveLabel'),
-		$volume = $('#volume'),
 		$mantra = $('#mantra'),
 		$date = $('#date'),
 		$dateNote = $('#dateNote'),
@@ -69,36 +61,6 @@ $(function(){
 		setTimeout(update, 5000);
 	}
 
-	var bgs = ['1', '3', '4', '5', '6', '7', '8', '9', '10', '11', '12', '13', '14'];
-	var bgTurn = 0;
-	function updateBackground(){
-		var count = bgs.length-1;
-		var num = Math.round(Math.random()*count);
-		var bg = bgs[num];
-		var $video2 = $video.clone();
-		$video2.attr('class', 'holder-video holder-video-hidden holder-video-'+bg);
-
-		bgTurn += 1;
-
-		if (bgTurn % 2) {
-			$video2.addClass('holder-video-invert');
-		}
-
-		$video2.insertAfter($video);
-
-		window.setTimeout(function(){
-			$video.addClass('holder-video-hidden');
-			$video2.removeClass('holder-video-hidden');
-		}, 13);
-
-		window.setTimeout(function(){
-			$video.remove();
-			$video = $video2;
-		}, 7000);
-
-		window.setTimeout(updateBackground, bgTimeout);
-	}
-
 	var mantras = [
 		'Жизнь слишком коротка, чтобы всё время смотреть в стол.',
 		'Мы придумали какую-то ерунду: нас всех побьют и посадят. Убить и посадить всех невозможно.',
@@ -135,52 +97,7 @@ $(function(){
 
 	function adjustFontSize() {
 		$value.css('font-size', $itemRight.width() / 4);
-		setTimeout(function() {
-			$stocks.css('margin-top', -$stocks.height() / 2)
-		}, 0);
 	}
-
-	var paused = false;
-	function updateAudio() {
-		var drive = $zenSwitch.is(':checked');
-		var selected = 'switch-label-selected';
-
-		if (paused) {
-			audioZen.pause();
-			audioDrive.pause();
-			$volume.addClass('volume-off');
-			$zenLabel.removeClass(selected);
-			$driveLabel.removeClass(selected);
-		} else {
-			if (drive) {
-				audioZen.pause();
-				audioDrive.play();
-				$zenLabel.removeClass(selected);
-				$driveLabel.addClass(selected);
-			} else {
-				audioDrive.pause();
-				audioZen.play();
-				$driveLabel.removeClass(selected);
-				$zenLabel.addClass(selected);
-			}
-			$volume.removeClass('volume-off');
-		}
-	}
-
-	$volume.on('click', function(){
-		paused = !paused;
-		updateAudio();
-	});
-
-	$zenSwitch.on('change', updateAudio);
-	$zenLabel.on('click', function(){
-		$zenSwitch[0].checked = false;
-		updateAudio();
-	});
-	$driveLabel.on('click', function(){
-		$zenSwitch[0].checked = true;
-		updateAudio();
-	});
 
 	function wordEnd(word, num){
 		//word = ['сайтов','сайта','сайт']
@@ -262,9 +179,7 @@ $(function(){
 	adjustFontSize();
 	$(window).on('resize', adjustFontSize);
 	update();
-	window.setTimeout(updateBackground, bgTimeout);
 	updateMantra();
-	updateAudio();
 	updateDate();
 	window.setInterval(updateSechin, 1000);
 	switchSechin();

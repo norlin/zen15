@@ -1,0 +1,150 @@
+@textColor: #fff;
+@linkColor: #00B7FF;
+@backgroundColor: #000;
+
+@fontNormal: 16px;
+@fontLarge: 130px;
+
+* {
+	user-select: none;
+	-webkit-user-select: none;
+	-moz-user-select: none;
+}
+
+html, body {
+	height: 100%;
+	widows: 100%;
+	margin: 0;
+	padding: 0;
+}
+
+body {
+	font: @fontNormal "Play", sans-serif;
+	background: @backgroundColor;
+	color: @textColor;
+	opacity: 0.9;
+	cursor: default;
+}
+
+body.banner {
+	width: 100%;
+	height: auto;
+}
+
+a {
+	color: @textColor;
+	text-decoration: none;
+	outline: none !important;
+	cursor: pointer;
+}
+
+.g-hidden {
+	display: none !important;
+}
+
+.holder {
+	position: relative;
+
+	display: block;
+	width: 100%;
+	height: 100%;
+
+	margin: 0;
+	padding: 0;
+
+	overflow: hidden;
+}
+
+.stocks {
+	position: absolute;
+	top: 50%;
+	//margin-top: -100px;
+
+	box-sizing: border-box;
+	display: block;
+	//height: 200px;
+	width: 100%;
+
+	transition: margin 0.5s;
+
+	&-mantra {
+		position: absolute;
+		top: 100px;
+
+		box-sizing: border-box;
+		display: block;
+		width: 100%;
+		height: 50px;
+
+		padding: 0 50px;
+
+		font-size: 18px;
+		text-align: center;
+		text-shadow: 0 0 3px #666;
+	}
+
+	&-item {
+		box-sizing: border-box;
+		display: inline-block;
+		width: 33%;
+
+		vertical-align: top;
+		text-align: center;
+
+		a& {
+			opacity: inherit;
+
+			cursor: pointer;
+			text-decoration: none;
+
+			&>span,
+			&>div {
+				transition: all 0.5s;
+
+				opacity: 0.8;
+			}
+			&:hover>span,
+			&:hover>div {
+				opacity: 1;
+			}
+		}
+
+		&-value {
+			display: block;
+
+			font-size: @fontLarge;
+			font-weight: bold;
+			text-shadow: 0 0 15px #555;
+			white-space: nowrap;
+
+			transition: all 0.5s;
+
+			opacity: 0.8;
+			&-up {
+				color: #afefaf;
+			}
+			&-down {
+				color: #efafaf;
+			}
+		}
+		&-note {
+			display: block;
+			width: 80%;
+			margin: 0 auto;
+
+			text-align: center;
+			text-shadow: 0 0 3px #666;
+			text-decoration: none;
+		}
+	}
+
+	&-banner {
+		position: relative;
+		top: auto;
+		margin: 0 auto;
+		padding: 0;
+		.stocks-item-value {
+			font-size: 70px;
+		}
+	}
+}
