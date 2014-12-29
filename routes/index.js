@@ -8,7 +8,8 @@ function home(template, req, res){
 	var num = Math.round(Math.random()*bgCount);
 	var bg = bgs[num];
 	var count = req.app.get('count') || 0;
-	res.render(template, {count: count, bg: bg});
+	var white = req.query && req.query.white;
+	res.render(template, {count: count, bg: bg, white: !!white});
 }
 
 /* GET home page. */

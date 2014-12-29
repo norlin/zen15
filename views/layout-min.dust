@@ -7,7 +7,7 @@
 	<script type="text/javascript" src="//yastatic.net/jquery/2.1.3/jquery.min.js"></script>
 	<script type="text/javascript" src="/js/bn.js?v=14"></script>
 </head>
-<body class="banner">
+<body class="banner{?white} banner-white{/white}">
 	<a class="holder" href="https://www.facebook.com/events/406603402849183/407852609390929" target="_blank">
 		{+content/}
 	</a>
