@@ -125,8 +125,8 @@ $(function(){
 		return word[0];
 	}
 
-	var date = new Date('Thu Jan 15 2015 19:00:00 GMT+0300'),
-		text = ', чтобы рассказать всем';
+	var date = new Date('Sun Mar 1 2015 15:00:00 GMT+0300'),
+		text = ' до начала весны';
 	function updateDate() {
 		var ms = date.getTime(),
 			msNow = Date.now(),
@@ -179,8 +179,9 @@ $(function(){
 		adjustFontSize();
 		$(window).on('resize', adjustFontSize);
 		update();
-		updateDate();
 	}
+
+	updateDate();
 
 	if ($mantra.length) {
 		updateMantra();
