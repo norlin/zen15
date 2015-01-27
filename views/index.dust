@@ -31,7 +31,7 @@
 		{>stocks-item id="navalny" value="10" note="Лет за борьбу с коррупцией" position="left" link="http://www.youtube.com/watch?v=RvnkmPPiPWo" /}
 		{>stocks-item id="sechin" hidden="1" value="0" note="Столько рублей получил Сечин с момента вашего захода на сайт" position="left" link="http://www.forbes.ru/reitingi-photogallery/247478-25-samykh-dorogikh-top-menedzherov-rossii-2013-reiting-forbes/photo/1" /}
 		{!>stocks-item id="count" value=count note="Ожидающих Весну" position="center" link="https://www.facebook.com/events/406603402849183/407852609390929/" /!}
-		{>stocks-item id="vesna" value="Весна!" note="" position="center" link="https://ru.wikipedia.org/wiki/%D0%92%D0%B5%D1%81%D0%BD%D0%B0" /}
+		{>stocks-item id="vesna" value="Весна!" note="" position="center" link="https://navalny.com/p/4089/" /}
 		{>stocks-item id="date" value="0" note="Минут до начала весны" position="right" /}
 	</div>
 {/content}

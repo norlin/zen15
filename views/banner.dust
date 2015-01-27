@@ -4,7 +4,8 @@
 		<span id="mantra" class="stocks-mantra"></span>
 		{>stocks-item id="navalny" value="10" note="Лет за борьбу с коррупцией" position="left" /}
 		{>stocks-item id="sechin" hidden="1" value="0" note="Столько рублей получил Сечин с момента вашего захода на сайт" position="left" /}
-		{>stocks-item id="count" value=count note="Ожидающих Весну" position="center" /}
+		{!>stocks-item id="count" value=count note="Ожидающих Весну" position="center" /!}
+		{>stocks-item id="vesna" value="Весна!" note="" position="center" link="https://navalny.com/p/4089/" /}
 		{>stocks-item id="date" value="0" note="Минут до начала весны" position="right" /}
 	</span>
 {/content}
