@@ -2,7 +2,7 @@
 var debug = require('debug')('zen15');
 var app = require('../app');
 
-app.set('port', process.env.PORT || 1488);
+app.set('port', process.env.PORT || 1599);
 
 var server = app.listen(app.get('port'), function() {
   debug('Express server listening on port ' + server.address().port);
