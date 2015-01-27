@@ -20,6 +20,7 @@ fb.api('oauth/access_token', {
 });
 
 function update(){
+	return;
 	fb.api('406603402849183', {fields: ['attending_count']}, function (fb_res) {
 		if(!fb_res || fb_res.error) {
 			console.log(!fb_res ? 'error occurred' : fb_res.error);

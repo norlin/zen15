@@ -2,7 +2,7 @@
 {<content}
 	<span class="stocks stocks-banner stocks-banner-small">
 		{>stocks-item id="navalny" value="10" note="Лет за борьбу с коррупцией" position="left" /}
-		{>stocks-item id="count" value=count note="Желающих пойти на Манежку" position="center" /}
-		{>stocks-item id="date" value="0" note="Минут, чтобы рассказать всем" position="right" /}
+		{>stocks-item id="count" value=count note="Ожидающих весну" position="center" /}
+		{>stocks-item id="date" value="0" note="Минут до начала весны" position="right" /}
 	</span>
 {/content}

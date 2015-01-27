@@ -69,14 +69,14 @@ $(function(){
 		setTimeout(update, 5000);
 	}
 
-	var bgs = ['1', '3', '4', '5', '6', '7', '8', '9', '10', '11', '12', '13', '14'];
+	var bgs = ['1', '2', '3', '4', '5', '6', '7', '8', '9', '10', '11', '12', '13', '14', '15', '16'];
 	var bgTurn = 0;
 	function updateBackground(){
 		var count = bgs.length-1;
 		var num = Math.round(Math.random()*count);
 		var bg = bgs[num];
 		var $video2 = $video.clone();
-		$video2.attr('class', 'holder-video holder-video-hidden holder-video-'+bg);
+		$video2.attr('class', 'holder-video holder-video-hidden holder-video-vesna-'+bg);
 
 		bgTurn += 1;
 
@@ -209,8 +209,8 @@ $(function(){
 		return word[0];
 	}
 
-	var date = new Date('Thu Jan 15 2015 19:00:00 GMT+0300'),
-		text = ', чтобы рассказать всем';
+	var date = new Date('Sun Mar 1 2015 15:00:00 GMT+0300'),
+		text = ' до начала весны';
 	function updateDate() {
 		var ms = date.getTime(),
 			msNow = Date.now(),
@@ -261,7 +261,7 @@ $(function(){
 
 	adjustFontSize();
 	$(window).on('resize', adjustFontSize);
-	update();
+	//update();
 	window.setTimeout(updateBackground, bgTimeout);
 	updateMantra();
 	updateAudio();
