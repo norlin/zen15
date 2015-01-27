@@ -8,7 +8,7 @@
 	<script type="text/javascript" src="/js/bn.js?v=vesna.6"></script>
 </head>
 <body class="banner{?white} banner-white{/white}">
-	<a class="holder" href="https://www.facebook.com/events/406603402849183/407852609390929" target="_blank">
+	<a class="holder" href="https://navalny.com/p/4089/" target="_blank">
 		{+content/}
 	</a>
 	{>ga/}
