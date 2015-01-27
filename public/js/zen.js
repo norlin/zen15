@@ -69,7 +69,7 @@ $(function(){
 		setTimeout(update, 5000);
 	}
 
-	var bgs = ['1', '2', '3', '4', '5', '6', '7', '8', '9', '10', '11', '12', '13', '14', '15', '16'];
+	var bgs = ['1', '2', '3', '4', '5', '6', '7', '8', '9', '10', '11', '12', '13', '14', '15'];
 	var bgTurn = 0;
 	function updateBackground(){
 		var count = bgs.length-1;

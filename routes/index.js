@@ -1,7 +1,7 @@
 var express = require('express');
 var router = express.Router();
 
-var bgs = ['1', '3', '4', '5', '6', '7', '8', '9', '10', '11', '12', '13', '14'];
+var bgs = ['1', '3', '4', '5', '6', '7', '8', '9', '10', '11', '12', '13', '14', '15'];
 var bgCount = bgs.length-1;
 
 function home(template, req, res){
