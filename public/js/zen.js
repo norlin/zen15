@@ -210,7 +210,7 @@ $(function(){
 		return word[0];
 	}
 
-	var date = new Date('Sun Mar 1 2015 15:00:00 GMT+0300'),
+	var date = new Date('Sun Mar 1 2015 00:00:00 GMT+0300'),
 		text = ' до начала весны';
 	function updateDate() {
 		var ms = date.getTime(),
@@ -218,9 +218,15 @@ $(function(){
 			diff = ms - msNow,
 			msMin = 1000 * 60,
 			min = Math.round(diff / msMin);
+		if (min<0){
+			min = 0;
+		}
 		animate($date, min, 'date');
-		var minText = wordEnd(['Минут', 'Минуты', 'Минута'], min);
-		$dateNote.html(minText + text);
+		if (min == 0){
+			$dateNote.html('Весна началась!');
+		} else {
+			$dateNote.html(wordEnd(['Минут', 'Минуты', 'Минута'], min) + text);
+		}
 		window.setTimeout(updateDate, 1000);
 	}
 
