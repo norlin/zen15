@@ -268,7 +268,7 @@ $(function(){
 
 	adjustFontSize();
 	$(window).on('resize', adjustFontSize);
-	//update();
+	update();
 	window.setTimeout(updateBackground, bgTimeout);
 	updateMantra();
 	updateAudio();
