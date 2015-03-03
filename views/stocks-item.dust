@@ -1,4 +1,5 @@
 <{?link}a href="{link}" target="_blank"{:else}span{/link} id="{id}Block" class="stocks-item stocks-item-{position}"{?hidden} style="display:none;"{/hidden}>
+	<span class="stocks-item-note">За</span>
 	<span id="{id}" class="stocks-item-value">{value}</span>
 	<span id="{id}Note" class="stocks-item-note">{note}</span>
 </{?link}a{:else}span{/link}>

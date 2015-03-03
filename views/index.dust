@@ -1,6 +1,6 @@
 {>layout/}
 {<content}
-	<div class="setup">
+	{!<div class="setup">
 		<div class="setup-item">
 			<div id="zenLabel" class="switch-label">Zen</div>
 			<div class="switch">
@@ -8,9 +8,9 @@
 				<label for="zen_switch"></label>
 			</div>
 			<div id="driveLabel" class="switch-label">Drive</div>
-			{!<a href="https://www.youtube.com/watch?v=WZAdQS8ciVo" target="_blank" class="switch-label switch-label-video">
+			<a href="https://www.youtube.com/watch?v=WZAdQS8ciVo" target="_blank" class="switch-label switch-label-video">
 				Видео
-			</a>!}
+			</a>
 		</div>
 		<div class="setup-item">
 			<i id="volume" class="fa volume"></i>
@@ -19,7 +19,8 @@
 	<div class="holder-audio">
 		<audio id="audio_zen" class="audio" src="/media/spring.mp3" loop></audio>
 		<audio id="audio_drive" class="audio" src="/media/spring-metal.mp3" loop></audio>
-	</div>
+	</div>!}
+	<div class="holder-tlen"></div>
 	<div id="video" class="holder-video holder-video-vesna-{bg}"></div>
 	{?message}
 		<div class="error">{message}</div>
@@ -28,10 +29,11 @@
 		Власть должна быть для людей, а там, где это возможно, то есть практически везде, сами люди и должны быть властью.
 	</div>
 	<div class="stocks">
-		{>stocks-item id="navalny" value="10" note="Лет за борьбу с коррупцией" position="left" link="http://www.youtube.com/watch?v=RvnkmPPiPWo" /}
+		{!>stocks-item id="navalny" value="10" note="Лет за борьбу с коррупцией" position="left" link="http://www.youtube.com/watch?v=RvnkmPPiPWo" /}
 		{>stocks-item id="sechin" hidden="1" value="0" note="Столько рублей получил Сечин с момента вашего захода на сайт" position="left" link="http://www.forbes.ru/reitingi-photogallery/247478-25-samykh-dorogikh-top-menedzherov-rossii-2013-reiting-forbes/photo/1" /}
 		{>stocks-item id="count" value=count note="Встречающих Весну" position="center" link="https://www.facebook.com/events/1601494796751001/" /}
-		{!>stocks-item id="vesna" value="Весна!" note="" position="center" link="https://navalny.com/p/4089/" /!}
-		{>stocks-item id="date" value="0" note="Минут до начала весны" position="right" /}
+		{!>stocks-item id="vesna" value="Весна!" note="" position="center" link="https://navalny.com/p/4089/" /}
+		{>stocks-item id="date" value="0" note="Минут до начала весны" position="right" /!}
+		{>stocks-item id="nemtsov" value="" note="убийца Бориса Немцова не найден" position="nemtsov" /}
 	</div>
 {/content}

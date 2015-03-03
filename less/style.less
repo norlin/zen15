@@ -114,8 +114,11 @@ a:not(.stocks-item) {
 @keyframes bg_move_back { .bg-animate-back; }
 
 .holder {
+	box-sizing: border-box;
+	border: 25px solid #000;
 	&-video,
-	&-audio {
+	&-audio,
+	&-tlen {
 		overflow: hidden;
 		position: absolute;
 		top: 0;
@@ -133,7 +136,11 @@ a:not(.stocks-item) {
 		background-size: cover;
 
 		transition: opacity 3s linear;
-		opacity: 0.9;
+		opacity: 0.1;
+	}
+	&-tlen {
+		opacity: 0.7;
+		background-color: #666;
 	}
 
 	&-video {
