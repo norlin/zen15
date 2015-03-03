@@ -38,7 +38,7 @@ $(function(){
 		$value = $('.stocks-item-value');
 
 	function adjustFontSize() {
-		$value.css('font-size', $itemRight.width() / 15);
+		$value.css('font-size', $itemRight.width() / 20);
 		setTimeout(function() {
 			$stocks.css('margin-top', -$stocks.height() / 2)
 		}, 0);
