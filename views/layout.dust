@@ -14,11 +14,11 @@
 </head>
 <body>
 	<div class="holder">
-		<div class="header">
+		{!<div class="header">
 			<span class="header-link">
 				1 марта 2015
 			</span>
-		</div>
+		</div>!}
 		{+content/}
 		{>footer/}
 	</div>
