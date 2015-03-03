@@ -34,6 +34,6 @@
 		{>stocks-item id="count" value=count note="Встречающих Весну" position="center" link="https://www.facebook.com/events/1601494796751001/" /}
 		{!>stocks-item id="vesna" value="Весна!" note="" position="center" link="https://navalny.com/p/4089/" /}
 		{>stocks-item id="date" value="0" note="Минут до начала весны" position="right" /!}
-		{>stocks-item id="nemtsov" value="" note="убийца Бориса Немцова не найден" position="nemtsov" /}
+		{>stocks-item id="nemtsov" value="" note="убийца Бориса Немцова не найден." position="nemtsov" /}
 	</div>
 {/content}

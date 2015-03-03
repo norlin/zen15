@@ -291,6 +291,8 @@ $(function(){
 		}
 		var text;
 		var val;
+		if (ms <= date_ms.SEC)
+			return '';
 		if (ms < date_ms.MIN)
 			return Math.floor(ms/date_ms.SEC)+'&nbsp;сек';
 		if (ms < date_ms.HOUR)
@@ -328,7 +330,7 @@ $(function(){
 	}
 
 	function updateNemtsov(){
-		var text = timeAgo(+Date.now());
+		var text = 'За&nbsp;'+timeAgo(+Date.now());
 		$('#nemtsov').html(text);
 		adjustFontSize();
 		window.setTimeout(updateNemtsov, 1000);
