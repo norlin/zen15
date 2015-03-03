@@ -1,5 +1,6 @@
 <{?link}a href="{link}" target="_blank"{:else}span{/link} id="{id}Block" class="stocks-item stocks-item-{position}"{?hidden} style="display:none;"{/hidden}>
-	<span class="stocks-item-note">Убийство произошло в 50 метрах от стен Кремля.</span>
+	<span class="stocks-item-note">Убийство произошло в 50 метрах от стен Кремля</span>
+	<span class="stocks-item-note">27 февраля 2015г в 23:31</span>
 	<span id="{id}" class="stocks-item-value">{value}</span>
 	<span id="{id}Note" class="stocks-item-note">{note}</span>
 </{?link}a{:else}span{/link}>

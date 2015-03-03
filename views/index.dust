@@ -21,7 +21,7 @@
 		<audio id="audio_drive" class="audio" src="/media/spring-metal.mp3" loop></audio>
 	</div>!}
 	<div class="holder-tlen"></div>
-	<div id="video" class="holder-video holder-video-vesna-{bg}"></div>
+	<div id="video" class="holder-video"></div>
 	{?message}
 		<div class="error">{message}</div>
 	{/message}
