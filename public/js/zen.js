@@ -72,70 +72,41 @@ $(function(){
 	}
 
 	var theDate = new Date(2015, 1, 27, 23, 31);
-	var date_sec = {
-		MS: 0.001,
-		SEC: 1,
-		MIN: 60,
-		HOUR: 60*60,
-		DAY: 24*60*60,
-		WEEK: 7*24*60*60,
-		MONTH: 30*24*60*60,
-		YEAR: 365*24*60*60
-	};
-	var date_ms = {};
-	for (var key in date_sec)
-	{
-		date_ms[key] = date_sec[key]*1000;
-	}
 
-	function timeAgo(now, diff){
-		var ms = now-theDate;
-		diff = diff||0;
-		if (diff){
-			ms -= diff;
+	var texts = {
+		'seconds': ['сек', 'сек', 'сек'],
+		'minutes': ['мин', 'мин', 'мин'],
+		'hours': ['часов', 'часа', 'час'],
+		'days': ['дней', 'дня', 'день'],
+		'weeks': ['недель', 'недели', 'неделю'],
+		'months': ['месяцев', 'месяца', 'месяц'],
+		'years': ['лет', 'года', 'год']
+	};
+	var nextPeriod = {
+		'years': 'months',
+		'months': 'weeks',
+		'weeks': 'days',
+		'days': 'hours',
+		'hours': 'minutes',
+		'minutes': 'seconds'
+	};
+	function getTime(period, date){
+		period = period||'years';
+		var text = '';
+		var a = moment(date||theDate);
+		var b = moment();
+		var diff = b.diff(a, period, true);
+		var next = nextPeriod[period];
+		if (diff > 1) {
+			var round = Math.floor(diff);
+			text = wordEnd(texts[period], round);
+			return round + ' ' + text + (next ? ' '+getTime(next, a.add(round, period)) : '');
 		}
-		var text;
-		var val;
-		if (ms <= date_ms.SEC)
-			return '';
-		if (ms < date_ms.MIN)
-			return Math.floor(ms/date_ms.SEC)+'&nbsp;сек';
-		if (ms < date_ms.HOUR)
-		{
-			val = Math.floor(ms/date_ms.MIN);
-			return val+'&nbsp;мин '+timeAgo(now, date_ms.MIN*val+diff);
-		}
-		if (ms < date_ms.DAY)
-		{
-			val = Math.floor(ms/date_ms.HOUR);
-			text = wordEnd(['часов', 'часа', 'час'], val);
-			return val+'&nbsp;'+text+' '+timeAgo(now, date_ms.HOUR*val+diff);
-		}
-		if (ms < date_ms.WEEK)
-		{
-			val = Math.floor(ms/date_ms.DAY);
-			text = wordEnd(['дней', 'дня', 'день'], val);
-			return val+'&nbsp;'+text+' '+timeAgo(now, date_ms.DAY*val+diff);
-		}
-		if (ms < date_ms.MONTH)
-		{
-			val = Math.floor(ms/date_ms.WEEK);
-			text = wordEnd(['недель', 'недели', 'неделю'], val);
-			return val+'&nbsp;'+text+' '+timeAgo(now, date_ms.WEEK*val+diff);;
-		}
-		if (ms < date_ms.YEAR)
-		{
-			val = Math.floor(ms/date_ms.MONTH);
-			text = wordEnd(['недель', 'недели', 'неделю'], val);
-			return val+'&nbsp;'+text+' '+timeAgo(now, date_ms.MONTH*val+diff);
-		}
-		val = Math.floor(ms/date_ms.YEAR);
-		text = wordEnd(['лет', 'года', 'год'], val);
-		return val+'&nbsp;'+text+' '+timeAgo(now, date_ms.YEAR*val+diff);;
+		return next ? getTime(next, a) : '';
 	}
 
 	function updateNemtsov(){
-		var text = 'За&nbsp;'+timeAgo(+Date.now());
+		var text = 'За&nbsp;'+getTime();
 		$('#nemtsov').html(text);
 		adjustFontSize();
 		window.setTimeout(updateNemtsov, 1000);
