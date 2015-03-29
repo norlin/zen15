@@ -100,7 +100,7 @@ $(function(){
 		if (diff > 1) {
 			var round = Math.floor(diff);
 			text = wordEnd(texts[period], round);
-			return round + ' ' + text + (next ? ' '+getTime(next, a.add(round, period)) : '');
+			return round + '&nbsp;' + text + (next ? ' '+getTime(next, a.add(round, period)) : '');
 		}
 		return next ? getTime(next, a) : '';
 	}
